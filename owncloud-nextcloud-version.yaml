@@ -1,0 +1,39 @@
+id: owncloud-nextcloud-version
+
+info:
+  name: Owncloud/Nextcloud Version
+  author: gtrrnr, metascan
+  severity: info
+  description: Discover Owncloud/Nextcloud version.
+  tags: misc,owncloud, nextcloud
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/status.php"
+      - "{{BaseURL}}/owncloud/status.php"
+      - "{{BaseURL}}/nextcloud/status.php"
+
+    matchers-condition: and
+    matchers:
+
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        part: header
+        words:
+          - "application/json"
+
+      - type: word
+        words:
+          - "needsDbUpgrade"
+        condition: and
+
+    extractors:
+      - type: json
+        part: body
+        name: software
+        json:
+          - ".productname,.version"
