@@ -23,16 +23,11 @@ requests:
     matchers-condition: and
     matchers:
 
-      - type: word
-        part: header
-        words:
-          - text/html
+      - type: status
+        status:
+          - 200
 
       - type: word
         part: body
         words:
           - 'TEXT INJECTION! PLEASE CLICK HERE!'
-
-      - type: status
-        status:
-          - 200
