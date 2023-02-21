@@ -19,7 +19,6 @@ requests:
     path:
       - "{{BaseURL}}/bitrix/components/bitrix/photogallery_user/templates/.default/galleries_recalc.php?AJAX=Y&arParams[PERMISSION]=W&arParams[IBLOCK_ID]=1%00%27}};alert('HACKED');if(1){//"
 
-    stop-at-first-match: true
     matchers-condition: and
     matchers:
 
@@ -36,5 +35,3 @@ requests:
       - type: status
         status:
           - 200
-
-# Enhanced by cs 2022/09/14
