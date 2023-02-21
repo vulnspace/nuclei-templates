@@ -17,7 +17,7 @@ info:
 requests:
   - method: GET
     path:
-      - '{{BaseURL}}/bitrix/components/bitrix/mobileapp.list/ajax.php?items[1][TITLE]=HACKED&items[1][DETAIL_LINK]=http://google.com'
+      - '{{BaseURL}}/bitrix/components/bitrix/mobileapp.list/ajax.php?items[1][TITLE]=TEXT+INJECTION!+PLEASE+CLICK+HERE!&items[1][DETAIL_LINK]=https://metascan.ru'
 
     stop-at-first-match: true
     matchers-condition: and
@@ -31,10 +31,8 @@ requests:
       - type: word
         part: body
         words:
-          - HACKED
+          - 'TEXT INJECTION! PLEASE CLICK HERE!'
 
       - type: status
         status:
           - 200
-
-# Enhanced by cs 2022/09/14
