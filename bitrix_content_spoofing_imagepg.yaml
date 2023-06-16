@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-345
   tags: cve,cve2023,xss,bitrix,spoofing
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/bitrix/tools/imagepg.php?img=//metascan.ru/assets/images/logo.svg'
@@ -36,5 +36,3 @@ requests:
       - type: status
         status:
           - 200
-
-# Enhanced by cs 2022/09/14
