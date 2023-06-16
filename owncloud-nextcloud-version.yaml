@@ -7,7 +7,7 @@ info:
   description: Discover Owncloud/Nextcloud version.
   tags: misc,owncloud, nextcloud
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/status.php"
