@@ -7,7 +7,7 @@ info:
   description: Discover Moodle version.
   tags: misc,moodle
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/lib/upgrade.txt"
