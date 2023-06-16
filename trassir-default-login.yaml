@@ -16,7 +16,7 @@ info:
     verified: "true"
   tags: default-login,trassir
 
-requests:
+http:
 
   - raw:
       - |
