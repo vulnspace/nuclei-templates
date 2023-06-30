@@ -19,19 +19,10 @@ http:
     path:
       - '{{BaseURL}}/bitrix/components/bitrix/photogallery_user/templates/.default/galleries_recalc.php?AJAX=Y&arParams[PERMISSION]=W&arParams[IBLOCK_ID]=1%00%27}};alert("METASCAN");if(1){//'
 
-    matchers-condition: and
     matchers:
-
-      - type: word
-        part: header
-        words:
-          - text/html
-
-      - type: word
-        part: body
-        words:
-          - 'alert("METASCAN")if(1){//'
-          - 'PhotoGalleryRecalcStart'
-      - type: status
-        status:
-          - 200
+      - type: dsl
+        dsl:
+          - 'status_code == 200'
+          - 'contains(body, "alert(\"METASCAN\");if(1){")'
+          - 'contains(body, "PhotoGalleryRecalcStart")'
+        condition: and
