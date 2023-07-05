@@ -2,7 +2,7 @@ id: sogo-version
 
 info:
   name: SOGo Version
-  author: righettod, gtrrnr
+  author: righettod, gtrrnr, mikhailevtikhov
   severity: info
   description: This template will extract a running SOGo instance version
   reference:
