@@ -24,6 +24,7 @@ http:
         dsl:
           - 'status_code == 200'
           - 'contains(body, "config-auth")'
+          - 'contains(body, "<version who=")'
         condition: and
 
     extractors:
