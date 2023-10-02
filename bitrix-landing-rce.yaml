@@ -24,10 +24,6 @@ http:
     max-redirects: 3
     matchers-condition: or
     matchers:
-      - type: dsl
-        name: "landing (23.700.100) June 14, 2023"
-        dsl:
-          - "status_code==200 && (\"add1ed2596798ec254ba13abff931547\" == md5(body))"
 
       - type: dsl
         name: "landing (22.200.0) August 8, 2022"
