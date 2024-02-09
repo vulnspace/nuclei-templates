@@ -2,3 +2,4 @@ root
 mysql
 Administrator
 Admin
+user1
