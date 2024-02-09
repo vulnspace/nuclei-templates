@@ -5,3 +5,5 @@ Admin
 user
 user1
 test
+phpmyadmin
+padmin
