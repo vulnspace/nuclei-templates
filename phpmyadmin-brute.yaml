@@ -39,9 +39,9 @@ http:
         POST /index.php HTTP/1.1
         Host: {{Hostname}}
         Content-Type: application/x-www-form-urlencoded
-        Cookie: phpMyAdmin={{token2}}; pma_lang=en
+        Cookie: phpMyAdmin={{trim(session,"[]")}}; pma_lang=en
 
-        set_session={{session}}&pma_username={{user}}&pma_password={{password}}&server=1&route=%2F&token={{token}}
+        set_session={{trim(session,"[]")}}&pma_username={{user}}&pma_password={{url_encode(password)}}&server=1&route=%2F&token={{trim(token,"[]")}}&lang=en
 
     attack: clusterbomb
     payloads:
@@ -53,25 +53,18 @@ http:
         name: token
         internal: true
         group: 1
+        part: body
         regex:
-          - 'name="token" value="([0-9a-z]+)"'
-
-      - type: regex
-        name: token2
-        internal: true
-        group: 1
-        regex:
-          - 'name="set_session" value="([0-9a-z]+)"'
+          - 'name="token" value="([a-z0-9]+)"'
 
       - type: regex
         name: session
-        part: header
         internal: true
         group: 1
+        part: body
         regex:
-          - "phpMyAdmin=([0-9a-z]+)"
+          - 'name="set_session" value="([a-z0-9]+)"'
     req-condition: true
-    stop-at-first-match: true
 
     matchers-condition: and
     matchers:
