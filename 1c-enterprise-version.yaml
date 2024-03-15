@@ -1,0 +1,39 @@
+id: 1c-enterprise-version
+
+info:
+  name: 1C Enterprise Version
+  author: gtrrnr
+  severity: info
+  description: Discover 1C Enterprise version.
+  tags: misc,1c,1c_enterprise
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+      - "{{BaseURL}}/portal/"
+
+    matchers-condition: and
+    matchers:
+
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        part: header
+        words:
+          - "text/html"
+
+      - type: word
+        words:
+          - 'var VENDORPREFIX = "1c.";'
+          - "1С:Предприятие"
+          - "1C:Enterprise"
+        condition: or
+
+    extractors:
+      - type: regex
+        group: 1
+        regex:
+          - "var VERSION = \"([0-9.]+)\";"
