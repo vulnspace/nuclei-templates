@@ -3,7 +3,7 @@ id: 1c-enterprise-version
 info:
   name: 1C Enterprise Version
   author: gtrrnr
-  severity: info
+  severity: medium
   description: Discover 1C Enterprise version.
   tags: misc,1c,1c_enterprise
 
