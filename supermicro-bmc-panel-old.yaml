@@ -3,7 +3,7 @@ id: supermicro-bmc-panel-old
 info:
   name: Supermicro old BMC login panel
   author: gtrrnr, idealphase
-  severity: info
+  severity: medium
   description: Old (pre 2016) Supermicro BMC login panel was detected.
   tags: panel,supermicro,bmc
   classification:
