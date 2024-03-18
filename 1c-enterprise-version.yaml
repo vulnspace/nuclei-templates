@@ -27,11 +27,11 @@ http:
 
       - type: word
         words:
-          - 'var VENDORPREFIX = "1c.";'
+          - 'var VENDORPREFIX = "1c."'
         condition: and
 
     extractors:
       - type: regex
         group: 1
         regex:
-          - "var VERSION = \"([0-9.]+)\";"
+          - "var VERSION = \"([0-9.]+)\""
