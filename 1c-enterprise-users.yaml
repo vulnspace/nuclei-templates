@@ -22,7 +22,7 @@ http:
     matchers:
       - type: dsl
         dsl:
-          - contains(body_1, 'var VENDORPREFIX = \"1c\.\";')
+          - contains(body_1, 'var VENDORPREFIX = \"1c\.\"')
           - status_code_2 == 200
           - contains(content_type_2, 'text/plain')
           - content_length_2 > 3
@@ -34,7 +34,7 @@ http:
         name: basepath
         group: 1
         regex:
-          - 'var BASE = "(.+)";'
+          - 'var BASE = "(.+)"'
         internal: true
         part: body
 
