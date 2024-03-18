@@ -6,6 +6,10 @@ info:
   severity: medium
   description: Discover 1C Enterprise version.
   tags: misc,1c,1c_enterprise
+  metadata:
+    verified: true
+    max-request: 2
+    shodan-query: http.title:"1C:Enterprise"
 
 http:
   - method: GET
@@ -25,13 +29,13 @@ http:
         words:
           - "text/html"
 
-      - type: word
-        words:
-          - 'var VENDORPREFIX = "1c."'
+      - type: regex
+        regex:
+          - "[Vv][Aa][Rr] [Vv][Ee][Nn][Dd][Oo][Rr][Pp][Rr][Ee][Ff][Ii][Xx] = ['\"]1c.['\"]"
         condition: and
 
     extractors:
       - type: regex
         group: 1
         regex:
-          - "var VERSION = \"([0-9.]+)\""
+          - "[Vv][Aa][Rr] [Vv][Ee][Rr][Ss][Ii][Oo][Nn] = ['\"]([0-9.]+)['\"]"
