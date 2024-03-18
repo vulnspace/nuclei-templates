@@ -28,9 +28,7 @@ http:
       - type: word
         words:
           - 'var VENDORPREFIX = "1c.";'
-          - "1С:Предприятие"
-          - "1C:Enterprise"
-        condition: or
+        condition: and
 
     extractors:
       - type: regex
