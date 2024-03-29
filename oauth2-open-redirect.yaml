@@ -1,0 +1,41 @@
+id: oauth2-open-redirect
+
+info:
+  name: OAuth2 Open Redirect misconfiguration
+  author: haones
+  severity: high
+  description: |
+    Due to specific instance of Oauth2 misconfiguration it is possible to perform an open redirect on vulnerable target.
+  remediation: Check your Oauth2 configuration and allow only specific urls in redirect_uri parameter (white list)
+  reference:
+    - https://www.oauth.com/oauth2-servers/redirect-uris/redirect-uri-validation/
+  metadata:
+    verified: true
+    max-request: 1
+  tags: OAuth2,open_redirect,misconfig,open-redirect
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/passport/oauth2/auth?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/passport/oauth/auth?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/admin/oauth2/auth?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/admin/oauth/auth?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/admin/oauth2/authorize?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/admin/oauth/authorize?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/oauth2/auth?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/oauth/auth?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/oauth2/authorize?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/oauth/authorize?auth-org=/staff&redirect_uri=http://example.com"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: header
+        words:
+          - 'Location: http://example.com'
+        condition: and
+
+      - type: status
+        status:
+          - 302
