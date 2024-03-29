@@ -17,23 +17,14 @@ info:
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/passport/oauth2/auth?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/passport/oauth/auth?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/admin/oauth2/auth?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/admin/oauth/auth?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/admin/oauth2/authorize?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/admin/oauth/authorize?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/oauth2/auth?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/oauth/auth?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/oauth2/authorize?auth-org=/staff&redirect_uri=http://example.com"
-      - "{{BaseURL}}/oauth/authorize?auth-org=/staff&redirect_uri=http://example.com"
+      - "{{BaseURL}}/passport/oauth2/auth?auth-org=/staff&redirect_uri=http://{{Hostname}}.example.com"
 
     matchers-condition: and
     matchers:
       - type: word
         part: header
         words:
-          - 'Location: http://example.com'
+          - 'Location: http://{{BaseURL}}.example.com'
         condition: and
 
       - type: status
