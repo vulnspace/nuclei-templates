@@ -1,11 +1,11 @@
 id: error-stack-trace-detect
 
 info:
-  name: Application error stack-trace detected
+  name: Application stack-trace detected
   author: haones
   severity: low
   description: |
-    Generic application error stack-trace exposure.
+    Generic application stack-trace exposure.
   remediation: Disable debug option in application settings to prevent from exposing detailed error information in stack-trace.
   metadata:
     verified: true
