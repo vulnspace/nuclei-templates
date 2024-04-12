@@ -9,7 +9,7 @@ info:
   remediation: Disable debug option in application settings to prevent from exposing detailed error information in stack-trace.
   metadata:
     verified: true
-    max-request: 5
+    max-request: 6
   tags: misconfig,generic,exposure,debug
 
 http:
@@ -19,9 +19,17 @@ http:
       - "{{BaseURL}}/%FF"
       - "{{BaseURL}}/%5c/"
       - "{{BaseURL}}/%ff/"
-      - "{{BaseURL}}/..\;"
-	
-	stop-at-first-match: true
+  - raw:
+    - |+
+      GET /..\; HTTP/1.1
+      Host: {{Hostname}}
+  - raw:
+    - |+
+      GET /..\/ HTTP/1.1
+      Host: {{Hostname}}
+
+    unsafe: true
+    stop-at-first-match: true
     matchers-condition: and
     matchers:
       - type: word
@@ -33,7 +41,7 @@ http:
       - type: word
         part: body
         words:
-          - " at "
+          - "at "
         condition: and
 
       - type: status
