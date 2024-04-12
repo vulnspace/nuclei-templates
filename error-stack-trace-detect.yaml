@@ -1,0 +1,42 @@
+id: error-stack-trace-detect
+
+info:
+  name: Application error stack-trace detected
+  author: haones
+  severity: low
+  description: |
+    Generic application error stack-trace exposure.
+  remediation: Disable debug option in application settings to prevent from exposing detailed error information in stack-trace.
+  metadata:
+    verified: true
+    max-request: 5
+  tags: misconfig,generic,exposure,debug
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/%ff"
+      - "{{BaseURL}}/%FF"
+      - "{{BaseURL}}/%5c/"
+      - "{{BaseURL}}/%ff/"
+      - "{{BaseURL}}/..\;"
+	
+	stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Error"
+        condition: and
+
+      - type: word
+        part: body
+        words:
+          - " at "
+        condition: and
+
+      - type: status
+        status:
+          - 400
+          - 500
