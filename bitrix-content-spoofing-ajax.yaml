@@ -1,4 +1,4 @@
-id: CVE-2023-001
+id: bitrix-content-spoofing-ajax
 
 info:
   name: Bitrix24 <=20.0.0 - ajax.php content spoofing 

@@ -1,4 +1,4 @@
-id: CVE-2023-004
+id: bitrix-recalc-xss-galleries
 
 info:
   name: Bitrix24 <=20.0.0 - XSS on endpoint galleries_recalc.php
