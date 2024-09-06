@@ -6,7 +6,7 @@ securityDefinitions:
 info:
   version: "1.0.0"
   title: XSS img test
-  description: onload="alert(1)" <img src=https://academy.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Hero-a1.png onclick="alert(2)" onerror="alert(3)">
+  description: onload="alert(1)" <img src=https://metascan.ru/_astro/metascan-logo.dfd76162.svg onclick="alert(2)" onerror="alert(3)">
 paths:
   /:
     get:
