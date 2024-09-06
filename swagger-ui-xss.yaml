@@ -7,7 +7,7 @@ info:
   description: Swagger UI versions affected from 3.14.1 to, but not including 3.38.0 . Fixed in 2021.
 
   reference:
-    - https://github.com/MrL872/nuclei-template-for-swagger-ui-xss
+    - https://blog.vidocsecurity.com/blog/hacking-swagger-ui-from-xss-to-account-takeovers/
   metadata:
     max-request: 14
   tags: xss,swagger-ui,metascan-private
