@@ -6,7 +6,7 @@ info:
   severity: medium
   description: Keycloak master realm is exposed. It is possible to attempt bruteforce attack and retrieve access to administrative panel of Keycloak.
   metadata:
-    max-request: 8
+    max-request: 12
     product: keycloak
   tags: panel,keycloak
 
@@ -21,6 +21,10 @@ http:
       - "{{BaseURL}}/realms/master/"
       - "{{BaseURL}}/admin/master/console/"
       - "{{BaseURL}}/realms/master/account"
+      - "{{BaseURL}}/auth-cluster/realms/master"
+      - "{{BaseURL}}/auth-cluster/realms/master/"
+      - "{{BaseURL}}/auth-cluster/admin/master/console/"
+      - "{{BaseURL}}/auth-cluster/realms/master/account"
 
     stop-at-first-match: true
     host-redirects: true
