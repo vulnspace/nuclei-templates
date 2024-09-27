@@ -1,0 +1,9 @@
+{
+    "url": "https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml",
+    "urls": [
+        {
+            "url": "https://raw.githubusercontent.com/vulnspace/nuclei-templates/main/swagger-ui-xss/xss-fetch.yaml",
+            "name": "XSS payload"
+        }
+    ]
+}
