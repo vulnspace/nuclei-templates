@@ -7,7 +7,7 @@ info:
   severity: medium
   reference:
    - https://learn.microsoft.com/en-us/microsoft-365/enterprise/configure-exchange-server-for-hybrid-modern-authentication?view=o365-worldwide
-  tags: misc,fuzz,windows
+  tags: misc,windows
 
 http:
   - method: GET
