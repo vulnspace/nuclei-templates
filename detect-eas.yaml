@@ -21,7 +21,7 @@ http:
           - "WWW-Authenticate"
         condition: and
         part: header
-        case-insensitive: true
+        case-insensitive: true
       - type: status
         status:
           - 401
