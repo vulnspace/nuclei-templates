@@ -3,7 +3,7 @@ id: bitrix-esol-excel-rce
 info:
   name: Bitrix Esol Excel RCE search
   author: train
-  severity: critical
+  severity: high
   description: Поиск потенциальных точек RCE в модулях импорта/экспорта Bitrix
   tags: bitrix,exposure,cron
   reference: https://www.pentestnotes.ru/notes/bitrix_excel_rce/
