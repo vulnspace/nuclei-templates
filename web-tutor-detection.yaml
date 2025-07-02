@@ -3,7 +3,7 @@ id: webtutor-favicon-detection
 info:
   name: WebTutor Interface Detection
   author: haones
-  severity: medium
+  severity: info
   description: |
     This template detects the presence of a WebTutor interface based on the hash of the favicon.ico
   tags: webtutor,tech,favicon
