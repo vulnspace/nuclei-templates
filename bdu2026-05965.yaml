@@ -66,7 +66,7 @@ http:
           - "status_code==200 && (\"6931433035ce781c0dcbade50dc72f7a\" == md5(body))"
 
       - type: dsl
-        name: "landing (23.300.0) May 31, 2020"
+        name: "landing (23.300.0) May 31, 2023"
         dsl:
           - "status_code==200 && (\"3c0d79a9735c23a968bdf17246f09094\" == md5(body))"
 
