@@ -1,0 +1,19 @@
+id: bdu-2026-05965
+
+info:
+  name: BDU-2026-05965 Bitrix Landing module LFI version based detection
+  author: ProjectDiscoveryAI
+  severity: medium
+  description: |
+    A vulnerability in the landing module of the 1C-Bitrix Site Management content management system (CMS) vulnerable to LFI (BDU 2026-05965). Exploitation of the vulnerability can allow a remote attacker to read local files on the vulnerable host, which might result in control over resources or access to internal network.
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/bitrix/components/bitrix/landing.site_tile/templates/.default/src/css/landing.site.tile.css"
+
+    matchers-condition: and
+    matchers:
+      - type: dsl
+        dsl:
+          - "status_code==200 && (\"2225fe2c58668b223c818e04b2fc2061\" != md5(body))"
